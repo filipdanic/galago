@@ -1,0 +1,14 @@
+{
+  "name": "galago",
+  "version": "0.0.1",
+  "description": "galago, very specific helper functions for functional-like programming in js",
+  "main": "index.js",
+  "scripts": {
+    "example:fakeHttp": "node example/fakeHttp.js"
+  },
+  "author": "Filip Danić <filipdanic7@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "chalk": "^2.3.0"
+  }
+}
