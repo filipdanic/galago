@@ -7,7 +7,7 @@ yarn add galago
 # or
 npm install galago --save
 ```
-Or grab the source from `src/index.js` or `lib/index.js` (ES2015) and pluck it into your codebase as vendor code. The world is your oyster. ¯\_(ツ)_/¯
+Or grab the source from `src/index.js` or `lib/index.js` (ES2015) and pluck it into your codebase as vendor code. The world is your oyster. `¯\_(ツ)_/¯`
 
 ## `reduceFns`
 
