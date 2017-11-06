@@ -1,5 +1,5 @@
 # galago
-galago is a set of very specific, opinionated helper functions for functional-like programming in js
+`galago` /ɡəˈleɪɡoʊz/ is a set of very specific, opinionated helper functions for functional-like programming in js. It’s also the name of [this animal.](https://en.wikipedia.org/wiki/Galago)
 
 ## `reduceFns`
 
@@ -28,7 +28,7 @@ const fakeHttpEndpoint = (requestBody) =>
   );
 ```
 
-[Full explenation and code here.](https://github.com/filipdanic/galago/example/fakeHttp.js)
+[Full explenation and code here.](https://github.com/filipdanic/galago/blob/master/example/fakeHttp.js)
 
 You can also clone the repo and run `yarn run example:fakeHttp` to run this sample code.
 
