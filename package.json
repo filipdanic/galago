@@ -2,13 +2,33 @@
   "name": "galago",
   "version": "0.0.1",
   "description": "galago, very specific helper functions for functional-like programming in js",
-  "main": "index.js",
+  "homepage": "https://github.com/filipdanic/galago",
+  "bugs": {
+    "url": "https://github.com/filipdanic/galago/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:filipdanic/spicy-datatable.git"
+  },
+  "keywords": [
+    "functional",
+    "reduce",
+    "utility"
+  ],
+  "author": {
+    "name": "Filip Danić",
+    "email": "filipdanic7@gmail.com",
+    "url": "http://danicfilip.com"
+  },
+  "main": "lib/index.js",
   "scripts": {
+    "build": "babel src -d lib",
     "example:fakeHttp": "node example/fakeHttp.js"
   },
-  "author": "Filip Danić <filipdanic7@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "chalk": "^2.3.0"
   }
 }
