@@ -15,18 +15,18 @@
  * but it comes with an opinonated and quircky implementation specific
  * to web development.
  *
- * @param {string} acc
- * @param {exitProp} exitProp
+ * @param {*} acc
+ * @param {function} reducedFn
  * @param {array<Function>} fns
  * @returns {Promise}
  */
-const reduceFns = (acc, exitProp, fns) => new Promise((resolve) => {
-  if (acc[exitProp] || fns.length === 0) {
+const reduceFns = (acc, reducedFn, fns) => new Promise((resolve) => {
+  if ((typeof reducedFn === 'function' && reducedFn(acc)) || fns.length === 0) {
     resolve(acc);
   } else {
     Promise
       .resolve(fns[0](acc))
-      .then(x => resolve(reduceFns(x, exitProp, fns.slice(1))));
+      .then(x => resolve(reduceFns(x, reducedFn, fns.slice(1))));
   }
 });
 

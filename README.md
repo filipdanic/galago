@@ -15,9 +15,9 @@ Recursively reduces an a array of functions (which can even be async) by being a
 
 **Info:**
 
-* @param {string} acc
-* @param {exitProp} exitProp
-* @param {array<Function>} fns
+* @param {*} acc - used to provide the initial value
+* @param {function} reducedFn - function with signature `fn(x: Any): Boolean`; if returning true, exits the call and returns the last result
+* @param {array<Function>} fns - array of function to execute
 * @returns {Promise}
 
 **Usage example:**
@@ -25,8 +25,8 @@ Recursively reduces an a array of functions (which can even be async) by being a
 ```javascript
 const fakeHttpEndpoint = (requestBody) =>
   reduceFns(
-    requestBody,
-    'errors',
+    requestBody, // acc param
+    isReduced, // reducedFn param
     [
       parse,
       validate,

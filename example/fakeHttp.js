@@ -109,6 +109,14 @@ const saveToDb = (obj) => new Promise((resolve) => {
 });
 
 /**
+ * Used as the reduced param to quit reduction if error is present.
+ * @param {*} val
+ * @returns {boolean}
+ */
+const isReduced = (val) =>
+  typeof val === 'object' && val.errors && val.errors.length > 0;
+
+/**
  * Example of simple function composition
  * @param {string} requestBody
  * @returns {Promise}
@@ -116,7 +124,7 @@ const saveToDb = (obj) => new Promise((resolve) => {
 const fakeHttpEndpoint = (requestBody) =>
   reduceFns(
     requestBody,
-    'errors',
+    isReduced,
     [
       parse,
       validate,
