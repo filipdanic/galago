@@ -1,6 +1,6 @@
 {
   "name": "galago",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "galago, very specific helper functions for functional-like programming in js",
   "homepage": "https://github.com/filipdanic/galago",
   "bugs": {
