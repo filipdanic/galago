@@ -124,13 +124,13 @@ const isReduced = (val) =>
 const fakeHttpEndpoint = (requestBody) =>
   reduceFns(
     requestBody,
-    isReduced,
     [
       parse,
       validate,
       transform,
       saveToDb,
-    ]
+    ],
+    isReduced
   );
 
 /**

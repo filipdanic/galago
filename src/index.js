@@ -16,17 +16,17 @@
  * to web development.
  *
  * @param {*} acc
- * @param {function} reducedFn
  * @param {array<Function>} fns
+ * @param {?function} reducedFn
  * @returns {Promise}
  */
-const reduceFns = (acc, reducedFn, fns) => new Promise((resolve) => {
+const reduceFns = (acc, fns, reducedFn) => new Promise((resolve) => {
   if ((typeof reducedFn === 'function' && reducedFn(acc)) || fns.length === 0) {
     resolve(acc);
   } else {
     Promise
       .resolve(fns[0](acc))
-      .then(x => resolve(reduceFns(x, reducedFn, fns.slice(1))));
+      .then(x => resolve(reduceFns(x, fns.slice(1), reducedFn)));
   }
 });
 
