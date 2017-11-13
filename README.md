@@ -15,11 +15,13 @@ Both of these functions recursively reduce an a array of functions by being a ty
 
 Both functions accept the same three parameters:
 
-* `@param {*} acc` - used to provide the initial value
-* `@param {array<Function>}` fns - array of function to execute
-* `@param {?function} reducedFn` - optional function with signature `fn(x: Any): Boolean`; if returning true, exits the call and returns the last result
+* `@param {*} **acc**` - used to provide the initial value
+* `@param {array<Function>} **fns**` - array of function to execute
+* `@param {?function} **reducedFn**` - optional function with signature `fn(x: Any): Boolean`; if returning true, exits the call and returns the last result
 
-`compose` returns {*} (whatever you want), while `composeAsync` returns a `{Promise}`. **Note** that the functions supplied to `composeAsync` don’t all have to be async/Promises — you can mix and match.
+`compose` returns `{*}` (whatever you want), while `composeAsync` returns a `{Promise}`.
+
+**Important note:**  the functions supplied to `composeAsync` don’t all have to be async/Promises — you can mix and match!
 
 **Usage example for `compose`**
 
