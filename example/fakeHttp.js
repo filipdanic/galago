@@ -10,7 +10,7 @@
  * (4) save it to a DB
  *
  * Each of the these steps can fail, and might be async. The function at the bottom called
- * `fakeHttpEndpoint` shows how you can use the reduceFns utility to easily
+ * `fakeHttpEndpoint` shows how you can use the composeAsync utility to easily
  * compose all of these steps and allow each of them to fail gracefuly with an
  * error message that can be forwarded to the client.
  *
@@ -18,7 +18,7 @@
  */
 
 
-const reduceFns = require('../src/index').reduceFns;
+const composeAsync = require('../src/index').composeAsync;
 const chalk = require('chalk');
 const log = console.log;
 const error = chalk.bold.red;
@@ -122,7 +122,7 @@ const isReduced = (val) =>
  * @returns {Promise}
  */
 const fakeHttpEndpoint = (requestBody) =>
-  reduceFns(
+  composeAsync(
     requestBody,
     [
       parse,

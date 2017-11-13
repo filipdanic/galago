@@ -23,7 +23,8 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "babel src -d lib",
-    "example:fakeHttp": "node example/fakeHttp.js"
+    "example:fakeHttp": "node example/fakeHttp.js",
+    "example:transducer": "node example/transducer.js"
   },
   "license": "MIT",
   "devDependencies": {

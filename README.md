@@ -9,22 +9,38 @@ npm install galago --save
 ```
 Or grab the source from `src/index.js` or `lib/index.js` (ES2015) and pluck it into your codebase as vendor code. The world is your oyster. `¯\_(ツ)_/¯`
 
-## `reduceFns`
+## `compose` and `composeAsync`
 
-Recursively reduces an a array of functions (which can even be async) by being a typical compose function / pipe mechanism. It stops reducing the supplied arguments if one of the functions returns the specified error key in it’s response.
+Both of these functions recursively reduce an a array of functions by being a typical compose function / pipe mechanism. You can terminate the mechanism early by suppyling a `reduced?` function which check the output at each step.
 
-**Info:**
+Both functions accept the same three parameters:
 
-* @param {*} acc - used to provide the initial value
-* @param {array<Function>} fns - array of function to execute
-* @param {?function} reducedFn - optional function with signature `fn(x: Any): Boolean`; if returning true, exits the call and returns the last result
-* @returns {Promise}
+* `@param {*} acc` - used to provide the initial value
+* `@param {array<Function>}` fns - array of function to execute
+* `@param {?function} reducedFn` - optional function with signature `fn(x: Any): Boolean`; if returning true, exits the call and returns the last result
 
-**Usage example:**
+`compose` returns {*} (whatever you want), while `composeAsync` returns a `{Promise}`. **Note** that the functions supplied to `composeAsync` don’t all have to be async/Promises — you can mix and match.
+
+**Usage example for `compose`**
+
+```javascript
+const transducer = (data) =>
+  compose(
+    data,
+    [fn1, fn2, fn3, fn4, … fnX]
+  );
+```
+
+[Full explenation and code here.](https://github.com/filipdanic/galago/blob/master/example/transducer.js)
+
+You can also clone the repo and run `yarn run example:transducer` to run this sample code.
+
+
+**Usage example for `composeAsync`**
 
 ```javascript
 const fakeHttpEndpoint = (requestBody) =>
-  reduceFns(
+  composeAsync(
     requestBody, // acc param
     [ // list of functions
       parse,
