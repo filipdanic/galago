@@ -15,7 +15,7 @@ Both of these functions recursively reduce an a array of functions by being a ty
 
 Both functions accept the same three parameters:
 
-* `@param {*}` — used to provide the initial value
+* `@param {*} acc` — used to provide the initial value
 * `@param {array<Function>} fns` — array of function to execute
 * `@param {?function} reducedFn` — optional function with signature `fn(x: Any): Boolean`; if returning true, exits the call and returns the last result
 
